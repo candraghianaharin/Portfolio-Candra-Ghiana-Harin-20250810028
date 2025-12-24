@@ -1,0 +1,200 @@
+/* --- Import Font dari Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- CSS Variables (untuk memudahkan perubahan tema) --- */
+:root {
+    --primary-color: #1370fc;      /* Biru modern yang menenangkan */
+    --secondary-color: #6c757d;    /* Abu-abu untuk teks sekunder */
+    --background-color: #f8f9fa;  /* Putih keabu-abuan yang lembut untuk background */
+    --surface-color: #ffffff;      /* Putih bersih untuk kartu/konten */
+    --text-color: #212529;         /* Abu-abu tua untuk teks utama (lebih lembut dari hitam pekat) */
+    --border-color: #dee2e6;       /* Warna border yang sangat tipis */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+    --font-family: 'Poppins', sans-serif;
+    --spacing-unit: 1rem; /* 16px, satuan jarak standar */
+}
+
+/* --- Gaya Umum & Reset --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1100px; /* Menggunakan max-width agar tidak terlalu lebar di layar besar */
+    margin: auto;
+    padding: 0 calc(var(--spacing-unit) * 1.5); /* 24px */
+}
+
+/* --- Tipografi --- */
+h1, h2, h3 {
+    font-weight: 700; /* Font lebih tebal untuk heading */
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; text-align: center; margin-bottom: calc(var(--spacing-unit) * 2.5); }
+h3 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: var(--spacing-unit);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #0a58ca; /* Warna biru yang lebih gelap saat hover */
+    text-decoration: underline;
+}
+
+/* --- Header / Jumbotron --- */
+.jumbotron {
+    background: linear-gradient(135deg, var(--primary-color), #ffffff); /* Gradien untuk efek modern */
+    color: #ffffff;
+    padding: calc(var(--spacing-unit) * 6) 0; /* 96px */
+    text-align: center;
+    border-radius: 0 0 20px 20px; /* Sudut melengkung di bagian bawah */
+}
+
+.jumbotron h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgb(255, 255, 255);
+}
+
+.jumbotron p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: var(--spacing-unit) auto 0; /* Memberi jarak atas dan auto kiri-kanan */
+}
+
+/* --- Section --- */
+section {
+    padding: calc(var(--spacing-unit) * 4) 0; /* 64px */
+}
+
+/* --- Section Proyek --- */
+.project-list {
+    display: grid; /* Menggunakan Grid untuk tata letak yang lebih rapi */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Otomatis menyesuaikan jumlah kolom */
+    gap: calc(var(--spacing-unit) * 2); /* Jarak antar item */
+}
+
+.project-item {
+    background: var(--surface-color);
+    border-radius: 12px;
+    padding: var(--spacing-unit);
+    box-shadow: var(--shadow-md); /* Bayangan untuk menciptakan efek "mengambang" */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item:hover {
+    transform: translateY(-8px); /* Efek naik saat hover */
+    box-shadow: var(--shadow-lg); /* Bayangan lebih tebal saat hover */
+}
+
+/* --- Perbaikan dan Penggabungan Gaya Foto --- */
+.project-item img {
+    max-width: 100%; /* Foto tidak akan melebihi lebar kontainer */
+    height: auto;    /* Tinggi menyesuaikan agar proporsional */
+    border-radius: 8px; /* Sudut melengkung pada foto */
+    margin-bottom: var(--spacing-unit);
+    object-fit: cover; /* Memastikan foto memenuhi area tanpa distorsi */
+}
+
+.project-item h3 {
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.project-item p {
+    color: var(--secondary-color);
+    flex-grow: 1; /* Mendorong link ke bawah jika konten tidak seimbang */
+}
+
+.project-item a {
+    display: inline-block;
+    margin-top: var(--spacing-unit);
+    padding: calc(var(--spacing-unit) / 2) calc(var(--spacing-unit) * 1.5);
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.project-item a:hover {
+    background-color: #0a58ca;
+    text-decoration: none;
+}
+
+
+/* --- Section Kontak --- */
+#contact {
+    text-align: center;
+    background-color: var(--surface-color);
+    border-radius: 20px;
+    padding: calc(var(--spacing-unit) * 3) !important;
+    box-shadow: var(--shadow-sm);
+}
+
+#contact ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--spacing-unit) * 2);
+    flex-wrap: wrap;
+}
+
+#contact ul li {
+    margin-bottom: 0;
+}
+
+#contact a {
+    font-size: 1.1rem;
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+#contact a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    text-decoration: none;
+}
+
+
+/* --- Footer --- */
+footer {
+    background: #343a40; /* Abu-abu gelap yang elegan */
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2) 0;
+    margin-top: calc(var(--spacing-unit) * 3);
+    font-size: 0.9rem;
+}
